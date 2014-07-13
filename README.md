@@ -5,5 +5,6 @@ google200
 
 部署步骤：<br>
 1. 安装flask, redis, requests等 <br>
-2. 去console.developer.google.com申请google custom search api的key<br>
-3. python google200.py运行（你也可以安装gunicorn来启动)
+2. 去console.developer.google.com申请google custom search api的key <br>
+3. python google200.py运行（你也可以安装gunicorn来启动) <br>
+4. demo: https://www.google200.com 
