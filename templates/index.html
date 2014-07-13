@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=8">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+        <link rel="bookmark" type="image/x-icon" href="/static/favicon.ico">
+        <title>Google</title>
+        <link rel="stylesheet" media="screen" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+        <div class="search-box">
+            <div class="glogo"></div>
+            <form class="s_box" method="get" target="_blank" action="/search" onsubmit="return document.getElementById(&#39;id_s_text&#39;).value==&#39;&#39;?false:true;">
+               	<input id="id_s_text" class="s_text" name="q" type="text"/>
+                <input id="p" value="{{use_proxy}}" name="p" type="hidden"/>
+                <input class="s_submit m-button" value="" type="submit">
+            </form>
+            <center>方便IT人员使用，请不要搜索敏感词！Ctrl+D 加入收藏夹</center>
+        </div>
+        </div>
+        <script type="text/javascript">
+            document.getElementsByTagName('input')[0].focus();
+        </script>    
+    </body>
+</html>

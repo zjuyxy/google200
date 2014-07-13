@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=8">
+        <title>Google</title>
+        <meta name="description" content="google200">
+        <meta name="keywords" content="google200">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+        <link rel="bookmark" type="image/x-icon" href="/static/favicon.ico">
+        <link rel="stylesheet" media="screen" type="text/css" href="/static/style.css">
+    <style type="text/css"></style></head>
+    <body>
+        <div class="wrapper">
+    <div class="search-result">
+        <div class="content">
+            <div class="search_result">
+                {% autoescape false %}
+                {% for query in queries %}
+                <div class="s_r">
+                    <div class="visible_url">{{query[0]}},{{query[1]}}</div>
+                </div>
+                 {% endfor %}
+                 {% endautoescape %}
+            </div>
+    </div>
+        </div>    
+</body></html>

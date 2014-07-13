@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=8">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+        <link rel="bookmark" type="image/x-icon" href="/static/favicon.ico">
+        <title>Google</title>
+        <meta name="description" content="google200">
+        <meta name="keywords" content="google200">
+        <link rel="stylesheet" media="screen" type="text/css" href="/static/style.css">
+
+    <style type="text/css"></style></head>
+    <body>
+        <div class="wrapper">
+        
+    <div class="search-result">
+        <div class="header-bar">
+            <div class="logo">
+                <a href="/"><img width="167" height="373" src="/static/nav_logo.png"></a>
+            </div>
+            <div class="form_box">
+                <form action="/search" onsubmit="return document.getElementById(&#39;search_txt_id&#39;).value==&#39;&#39;?false:true;">
+                    <input id="search_txt_id" class="s_text" type="text" name="q" value="{{q}}"/>
+                    <input type="hidden" name="p" value="{{p}}" />
+                    <input class="s_submit m-button" value="" type="submit"/>
+                </form>
+            </div>
+        </div>
+
+        
+        <div class="content">
+            <div class="content_header">
+                <div class="link">
+                    <a>找到约 {{total_count}} 条结果 （用时 {{search_time}} 秒） <b>觉得好用吗，Ctrl+D 加入收藏夹吧！</b> </a>
+                </div>
+            </div>
+               
+            <div class="search_result">
+                {% autoescape false %}
+                {% for item in items %}
+    
+                <div class="s_r">
+                    <a target="_blank" class="title" href="{{item['link']}}">{{item['htmlTitle']}}</a>
+                    <div class="visible_url">{{item['htmlFormattedUrl']}}</div>
+                    <div class="min_content">{{item['htmlSnippet']}}</div>
+                </div>
+
+
+                 {% endfor %}
+                 {% endautoescape %}
+                
+
+                
+                
+            </div>
+            {% if items|length> 0 %}
+            <div class="navcnt">
+                <table style="border-collapse:collapse;text-align:left;margin:30px auto 30px">
+                    <tbody>
+                        <tr valign="top">
+                            <td class="b">
+                                <a class="pn" href="/search?q={{q}}&p={{p}}&start={{pre_page*10-10}}" id="pnprev" style="text-decoration:none"><span class="csb gbil ch" style="background:url(http:/static/nav_logo.png) no-repeat;background-position:0 0;width:53px;float:right"></span>
+                                    <span class="txt" style="display:block;margin-right:35px;clear:right">上一页</span>
+                                </a>
+                            </td>
+                            {% for page in range(first_page, last_page) %}
+                            <td>
+                                {% if (cur_page == page) %}
+                                <a class="fl cur" href="/search?q={{q}}&p={{p}}&start={{page*10-10}}">
+                                {% else %}
+                                <a class="fl" href="/search?q={{q}}&p={{p}}&start={{page*10-10}}">
+                                {% endif %}
+
+                                    {% if (page == 1) %}
+                                    <span class="csb gbil" style="background:url(http:/static/nav_logo.png) no-repeat;background-position:-53px 0;background-size:167px;width:20px"></span>{{page}}
+                                    {% else %}
+                                    <span class="csb" style="background:url(http:/static/nav_logo.png) no-repeat;background-position:-74px 0;background-size:167px;width:20px"></span>{{page}}
+                                    {% endif %}
+                                </a>
+                            </td>
+                            {% endfor %}
+
+                            <td class="b">
+                                <a class="pn" href="/search?q={{q}}&p={{p}}&start={{next_page*10-10}}" id="pnnext" style="text-decoration:none;text-align:left"><span class="csb" style="background:url(http:/static/nav_logo.png) no-repeat;background-position:-96px 0;background-size:167px;width:71px"></span>
+                                    <span class="txt" style="display:block;margin-left:53px">下一页</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+
+        
+
+    </div>
+        </div>    
+</body></html>
